@@ -18,7 +18,6 @@ namespace IOCPDemo
                 
                 //    userToken.Flag = MsgUtil.ParseToInt(mesEquip.adapterID);
                   userToken.AsyncSocketInvokeElement = new MyTestSocketProtocol(asyncSocketServer, userToken);
-                //    adapterStateEvent?.Invoke(mesEquip.adapterID, 1);//发送MES连接状态 设备已连接状态  
                
             });
         }
