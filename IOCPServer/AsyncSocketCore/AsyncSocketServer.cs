@@ -288,7 +288,9 @@ namespace SocketServer
                 {
                     if (count > 0) //处理接收数据
                     {
-                        if (!userToken.AsyncSocketInvokeElement.ProcessReceive(userToken.ReceiveEventArgs.Buffer, offset, count))
+                        byte[] buffer = new byte[count];
+                        Array.Copy(userToken.ReceiveEventArgs.Buffer,0,buffer,0,count);
+                        if (!userToken.AsyncSocketInvokeElement.ProcessReceive(buffer, offset, count))
                         { //如果处理数据返回失败，则断开连接
                             CloseClientSocket(userToken);
                         }

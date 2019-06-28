@@ -10,7 +10,7 @@ namespace IOCPDemo
 
             AsyncSocketSvr = new AsyncSocketServer();
 
-            AsyncSocketSvr.Init(200, "0.0.0.0", 6099, 60 * 1000);
+            AsyncSocketSvr.Init(200, "0.0.0.0", 6091, 60 * 1000);
             //添加解析方式
             AsyncSocketSvr.BuildingProtocol((asyncSocketServer, userToken) =>
             {

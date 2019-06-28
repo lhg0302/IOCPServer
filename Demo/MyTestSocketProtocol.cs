@@ -19,9 +19,11 @@ namespace IOCPDemo
         //接收消息
         public override bool ProcessReceive(byte[] buffer, int offset, int count)
         {
-            var message = Encoding.UTF8.GetString(buffer, offset, count);
-            Console.WriteLine(message + "__客户端_IP:__" + AsyncSocketUserToken.ReceiveEventArgs.AcceptSocket.RemoteEndPoint);
-         
+            //  var message = Encoding.UTF8.GetString(buffer, offset, count);
+            var data = BitConverter.ToInt32(buffer, 0);
+          //  var message= BitConverter.ToInt32(buffer,0);
+         //  Console.WriteLine(message /*+ "__客户端_IP:__" + message*/);/* AsyncSocketUserToken.ReceiveEventArgs.AcceptSocket.RemoteEndPoint);*/
+            Console.WriteLine(data);
             //发数据
 
             base.AsyncSocketUserToken.AsyncSocketInvokeElement.DoSendBuffer(buffer, 0, count);
