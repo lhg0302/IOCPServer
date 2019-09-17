@@ -13,10 +13,12 @@ namespace SocketServer
 
         public DaemonThread(AsyncSocketServer asyncSocketServer)
         {
-            m_asyncSocketServer = asyncSocketServer;
-            m_thread = new Thread(DaemonThreadStart);
-            m_thread.IsBackground = true;
-          //  m_thread.Start();
+            if (m_asyncSocketServer.SocketTimeOutMS>0)
+            {
+                m_asyncSocketServer = asyncSocketServer;
+                m_thread = new Thread(DaemonThreadStart);
+                m_thread.IsBackground = true;
+            }
         }
 
         public void DaemonThreadStart()
